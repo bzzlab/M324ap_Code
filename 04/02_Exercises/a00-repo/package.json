@@ -1,0 +1,19 @@
+{
+  "name": "trafficlight",
+  "version": "1.0.0",
+  "description": "M324 Devops",
+  "scripts": {
+    "server": "nodemon index.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "m324",
+    "javascript"
+  ],
+  "author": "daniel.garavaldi@bzz.ch",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  }
+}
