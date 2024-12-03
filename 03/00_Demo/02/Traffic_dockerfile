@@ -1,0 +1,21 @@
+#??
+# update OS and install lsb-release
+#??
+    && apt-get install -y lsb-release
+# install nano, release and clean all installation files
+#??
+    && apt-get install -y bash \
+    && apt-get clean
+# create directory server and ...
+#??
+# set it as working directory
+#??
+# copy all local files in the backend into
+# working directory
+#??
+# install all nodejs dependencies
+#??
+# expose port 3000 of the app
+#??
+# run server
+#??

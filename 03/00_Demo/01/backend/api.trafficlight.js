@@ -1,0 +1,26 @@
+//??
+
+//Export api
+module.exports = app => {
+
+    //welcome message
+    /**
+     *  /api/welcome: welcome message
+     */
+//??
+//??
+//??
+//??
+//??
+//??
+
+    /**
+     * /api/trafficlight
+     */
+//??
+//??
+//??
+//??
+//??
+//??
+}
