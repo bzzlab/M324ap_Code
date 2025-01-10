@@ -1,0 +1,20 @@
+# https://adoptium.net/de/installation/linux/#_deb_installation_on_debian_or_ubuntu
+# Ubuntu with certificate, tools and Java runtime
+FROM ubuntu:20.04
+USER root
+RUN apt-get update \
+    && apt-get -y install apt-transport-https \
+        ca-certificates \
+        curl \
+        wget \
+        gnupg2 \
+        software-properties-common \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+RUN mkdir -p /etc/apt/keyrings
+RUN wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public |\
+     tee /etc/apt/keyrings/adoptium.asc
+RUN echo "deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" |\
+     tee /etc/apt/sources.list.d/adoptium.list
+RUN apt-get update && \
+    apt-get -y install temurin-17-jdk
