@@ -1,0 +1,31 @@
+/*
+Pipeline Part 04 Exercise a02
+*/
+pipeline {
+  environment {
+    // this entry has to be created on your dockerhub-account
+    registry="readydocker1/traffic-api"
+    // this is the key in Jenkins
+    registryCredential = "dockerhub"
+  }
+  agent any
+  stages {
+    stage('Cloning Repo') {
+            steps {
+              script {
+                  //your repo branch
+                  git branch: 'main',
+                  //your public repo
+                  url: 'https://github.com/bzzlab/M324_trafficlight-api-demo.git'
+           }
+         }
+    }
+    stage('Building image') {
+      steps{
+        script {
+            docker.build registry+":$BUILD_NUMBER"
+        }
+      }
+    }
+  }
+}
