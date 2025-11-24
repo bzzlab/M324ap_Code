@@ -5,6 +5,6 @@
 # Set variable 'file' for the docker file
 file="Traffic_dockerfile" #??
 # Set variable 'image' for container-image
-image="traffic-img" #??
+image="traffic_img" #??
 # Set variable 'container' for container-name
 container="traffic" #??

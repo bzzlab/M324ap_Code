@@ -1,4 +1,5 @@
-FROM node:18.17.1
+# Basic Image
+FROM node:20.19-slim
 # update OS and install lsb-release
 RUN apt-get update \
     && apt-get install -y lsb-release
@@ -12,7 +13,7 @@ RUN mkdir /server
 WORKDIR /server
 # copy all local files in the backend into
 # working directory
-COPY backend/* .
+COPY backend/ .
 # install all nodejs dependencies
 RUN npm install
 # expose port 3000 of the app
