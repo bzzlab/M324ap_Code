@@ -1,0 +1,31 @@
+/*
+Pipeline Part 04 Exercise a02
+*/
+pipeline {
+  environment {
+    // this entry has to be created on your dockerhub-account
+//??
+    // this is the key in Jenkins
+//??
+  }
+  agent any
+  stages {
+    stage('Cloning Repo') {
+            steps {
+              script {
+                  //your repo branch
+//??
+                  //your public repo
+//??
+           }
+         }
+    }
+    stage('Building image') {
+      steps{
+        script {
+//??
+        }
+      }
+    }
+  }
+}
