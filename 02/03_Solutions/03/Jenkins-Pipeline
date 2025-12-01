@@ -1,0 +1,13 @@
+pipeline {
+  agent any
+  tools {nodejs "node"}
+  stages {
+    stage('Cloning Repo') {
+          steps {
+            script {
+                git branch: 'main',
+                url: 'https://github.com/bzzlab/M324_trafficlight.git'
+         }
+       }
+    }
+}
