@@ -1,0 +1,91 @@
+pipeline {
+  environment {
+      //your-registry/traffic-api
+//??
+//??
+      //variable with name of container
+      //i.e. used in stage 'Run container for testing'
+//??
+  }
+  agent any
+  tools {nodejs "node"}
+  stages {
+      stage('Cloning Repo') {
+              steps {
+                script {
+//??
+//??
+             }
+           }
+      }
+      stage('Building image') {
+        steps{
+          script {
+//??
+          }
+        }
+      }
+
+     stage('Install jest-cli') {
+        steps {
+            script {
+                sh """
+                    //set -e to disable break-on-error which means:
+                    //script continues even if a command fails.
+#??
+                    //check if jest-cli is installed
+#??
+                    //if not then ...
+#??
+#??
+                        //write a message and install package
+#??
+#??
+                        //if an error occurred during installation then...
+#??
+#??
+                            //write a message and exit with error-code > 0
+#??
+#??
+#??
+#??
+                        //write a message that package is already installed
+#??
+#??
+                    //enable break-on-error
+#??
+                """
+            }
+        }
+    }
+
+      stage('Install dependencies') {
+        steps {
+//??
+        }
+      }
+
+      stage('Run container for testing') {
+        steps {
+//??
+        }
+      }
+      stage('Test') {
+        steps {
+//??
+        }
+      }
+
+      stage('Remove traffic container') {
+        steps{
+//??
+        }
+      }
+
+      stage('Remove Unused docker image') {
+        steps{
+//??
+        }
+      }
+    }
+}

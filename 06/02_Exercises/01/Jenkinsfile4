@@ -1,0 +1,75 @@
+pipeline {
+  environment {
+      //your-registry/traffic-api
+//??
+//??
+      //variable with name of container
+      //i.e. used in stage 'Run container for testing'
+//??
+  }
+  agent any
+  tools {nodejs "node"}
+  stages {
+      stage('Cloning a private Repo') {
+              steps {
+                script {
+//??
+//??
+             }
+           }
+      }
+      stage('Building image') {
+        steps{
+          script {
+//??
+          }
+        }
+      }
+
+      stage('Test NodeJS Installation') {
+        steps {
+            sh 'npm --version; node --version'
+        }
+      }
+
+      stage('Install jest-cli') {
+          steps {
+              script {
+                  sh """
+                      echo "Installing jest-cli ..."
+                      npm install jest-cli -g
+                  """
+              }
+          }
+      }
+
+      stage('Install dependencies') {
+        steps {
+          sh 'npm install'
+        }
+      }
+
+      stage('Run container for testing') {
+        steps {
+//??
+        }
+      }
+      stage('Test') {
+        steps {
+           sh 'npm test'
+        }
+      }
+
+      stage('Remove traffic container') {
+        steps{
+//??
+        }
+      }
+
+      stage('Remove Unused docker image') {
+        steps{
+//??
+        }
+      }
+    }
+}

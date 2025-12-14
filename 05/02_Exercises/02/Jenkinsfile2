@@ -1,0 +1,64 @@
+pipeline {
+    environment {
+      //get user with jenkins credential function
+//??
+      //get password with jenkins credential function
+//??
+      IMAGE = "traffic-api"
+      BUILD_TAG = "v1.0.${BUILD_NUMBER}"
+    }
+
+    agent any
+    tools {nodejs "node"}
+    stages {
+      stage('Cloning Repo') {
+              steps {
+                script {
+//??
+//??
+             }
+           }
+      }
+
+      stage('Building image') {
+        steps{
+          script {
+          sh """
+                set -e
+                echo "Building Docker image..."
+#??
+            """
+          }
+        }
+      }
+
+      stage('Push image in registry') {
+        steps {
+            script {
+                sh """
+                    echo "Logging in hub.docker.com registry"
+#??
+#??
+
+                    echo "Tagging latest..."
+#??
+                    echo "Pushing images..."
+#??
+                """
+            }
+        }
+      }
+
+      stage('Remove Unused docker image') {
+        steps{
+          sh """
+            set -e
+            echo "Removing all images"
+#??
+#??
+            set +e
+          """
+        }
+      }
+    }
+}
