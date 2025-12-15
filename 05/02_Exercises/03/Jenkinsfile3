@@ -30,29 +30,29 @@ pipeline {
         steps {
             script {
                 sh """
-                    //set -e to disable break-on-error which means:
-                    //script continues even if a command fails.
+                    # set -e to disable break-on-error which means:
+                    # script continues even if a command fails.
 #??
-                    //check if jest-cli is installed
+                    # check if jest-cli is installed
 #??
-                    //if not then ...
-#??
-#??
-                        //write a message and install package
+                    # if not then ...
 #??
 #??
-                        //if an error occurred during installation then...
+                        # write a message and install package
 #??
 #??
-                            //write a message and exit with error-code > 0
+                        # if an error occurred during installation then...
+#??
+#??
+                            # write a message and exit with error-code > 0
 #??
 #??
 #??
 #??
-                        //write a message that package is already installed
+                        # write a message that package is already installed
 #??
 #??
-                    //enable break-on-error
+                    # enable break-on-error
 #??
                 """
             }
