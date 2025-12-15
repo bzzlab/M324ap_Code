@@ -6,20 +6,9 @@
 4. The latest Jenkins plugins [Docker pipeline](https://plugins.jenkins.io/docker-workflow/) and
    [NodeJs](https://plugins.jenkins.io/nodejs/) are installed and configured.
 5. You have set up your personal public repo from exercise ```03\02_Exercises\03```.
-6. Previous exercises has been finished successfully.
 
-
-### Tasks — Save the Password in Jenkins Credentials
-1. Open: Jenkins ⇢ Manage Jenkins ⇢ Credentials
-2. Choose a domain (usually: “(global)”)
-3. Click Add Credentials
-4. Select type:
-   Secret text → to store a password or token
-   Username with password → if you need both
-5. Give it an ID, e.g.: MY_SECRET_PASSWORD
-   or for username/password: MyLogin
-6. Check in the console output that the credentials are masked (not clear-text)
-
-You NEVER hardcode passwords in your Jenkinsfile.
-
+### Tasks
+1. Fill the missing gaps in order to push the built image into your registry.
+2. For testing purpose hardcode your registry credentials to test the pipeline 
+REMARK: You NEVER hardcode passwords in your Jenkinsfile.
 
