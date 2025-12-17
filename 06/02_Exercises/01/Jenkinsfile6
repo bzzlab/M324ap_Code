@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout from SCM') {
+            steps {
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[
+                        //url to your private repo
+//??
+                        //ID to your private ssh-key
+//??
+                    ]]
+                ])
+            }
+        }
+
+        stage('Verify Repository Content') {
+            steps {
+                sh '''
+                    echo "Current branch:"
+                    git branch --show-current
+
+                    echo "Latest commit:"
+                    git log -1 --oneline
+
+                    echo "Repository files:"
+                    ls -la
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Repository fetched successfully 🎉'
+        }
+        failure {
+            echo 'Checkout failed ❌'
+        }
+    }
+}
