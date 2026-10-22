@@ -1,0 +1,50 @@
+/*
+Pipeline Part 05 Demo/Intro 1
+*/
+pipeline {
+  agent any
+  tools {nodejs "node"}
+  stages {
+    stage('Cloning Repo') {
+            steps {
+              script {
+                  //your repo branch
+                  git branch: 'main',  //??
+                  //your public repo
+                  url: '<your public repository>'  //??
+           }
+         }
+    }
+
+    //...
+
+    stage('Install <package>') {
+        steps {
+            script {
+                sh """
+                    # set -e: Allows the script to continue even if a command fails.
+                    set -e
+                    # check if the package is installed
+                    PACKAGE=\$(npm ls -g -p | grep <package>)
+                    if [ -z "\$PACKAGE" ]
+                    then
+                        echo "Installing <package> ..."
+                        npm install <package> -g
+                        if [ \$? -ne 0 ]
+                        then
+                            echo "Failed to install <package>!"
+                            exit 1
+                        fi
+                    else
+                        echo "<package> is already installed!"
+                    fi
+                    set +e
+                """
+            }
+        }
+    }
+
+    //...
+
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "trafficlight",
+  "version": "1.0.0",
+  "description": "M324 Devops",
+  "main": "src/index.js",
+  "scripts": {
+    "server": "node src/index.js",
+    "test": "jest",
+    "coverage": "jest --collect-coverage"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/", "/coverage/"
+    ]
+  },
+  "keywords": [
+    "m324",
+    "javascript"
+  ],
+  "author": "daniel.garavaldi@bzz.ch",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^29.5.11",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  }
+}

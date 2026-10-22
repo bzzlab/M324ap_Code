@@ -1,0 +1,18 @@
+# Jenkins controller with packages
+# TODO: Change readydocker1 with your docker-hub account
+ARG IMG="readydocker1/jenkins1"
+FROM ${IMG}:latest
+USER root
+RUN wget -O /usr/share/keyrings/jenkins-keyring.asc \
+      https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+RUN echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+        https://pkg.jenkins.io/debian-stable binary/ |\
+         tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+RUN apt-get update && \
+  apt-get -y install ufw openssh-server openssh-client jenkins && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
+
+#CMD sh -c "/usr/bin/jenkins"

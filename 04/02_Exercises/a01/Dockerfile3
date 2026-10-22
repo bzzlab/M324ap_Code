@@ -1,0 +1,18 @@
+# TODO: Change readydocker1 with your docker-hub account
+ARG IMG="readydocker1/jenkins2"
+FROM ${IMG}:latest
+USER root
+RUN curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey && \
+    add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+    $(lsb_release -cs) \
+    stable" && \
+apt-get update && \
+apt-get -y install docker-ce
+RUN usermod -a -G docker jenkins
+# start multiple processes
+COPY helpers/05a_start-docker.sh /tmp/05a_start-docker.sh
+COPY helpers/05b_start-jenkins.sh /tmp/05b_start-jenkins.sh
+# Does not function ...
+#COPY 08_start-all.sh /tmp/08_start-all.sh
+#CMD ["/tmp/08_start-all.sh"]
